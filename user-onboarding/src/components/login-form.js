@@ -103,6 +103,7 @@ function LoginForm({ errors, touched, isSubmitting }) {
           id="terms"
           name="terms"
           value='terms'
+      
         /> 
         </div>
         <p className="error-text">
@@ -130,7 +131,8 @@ export default withFormik({
       address: "",
       city: "",
       state: "",
-      zip: ""
+      zip: "",
+      check: false
     };
   },
   handleSubmit: (values, formikBag) => {
