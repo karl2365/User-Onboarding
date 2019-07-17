@@ -49,15 +49,17 @@ function LoginForm({ errors, touched, isSubmitting }) {
         <p className="error-text">
           {touched.email && errors.email}
         </p>
-
+        <div className="termsCheck">
         <label htmlFor="terms">I accept the terms of service</label>
         <Field
+          className="field"
           autoComplete="off"
           type="checkbox"
           id="terms"
           name="terms"
           value='terms'
         /> 
+        </div>
         <p className="error-text">
           {errors.terms}
         </p>
