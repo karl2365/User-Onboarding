@@ -14,7 +14,7 @@ function LoginForm({ errors, touched, isSubmitting }) {
     <Form className="login-form">
       <h2>Create User</h2>
       <div className="form-group">
-        <label htmlFor="username">First Name</label>
+        <label htmlFor="firstName">First Name</label>
         <Field
           autoComplete="off"
           type="text"
@@ -39,7 +39,7 @@ function LoginForm({ errors, touched, isSubmitting }) {
           {touched.lastName && errors.lastName}
         </p>
 
-        <label className="email" htmlFor="password">Email</label>
+        <label className="formLabel" htmlFor="email">Email</label>
         <Field
           autoComplete="off"
           type="email"
@@ -49,6 +49,51 @@ function LoginForm({ errors, touched, isSubmitting }) {
         <p className="error-text">
           {touched.email && errors.email}
         </p>
+
+        <label className="formLabel" htmlFor="address">Address</label>
+        <Field
+          autoComplete="off"
+          type="text"
+          id="address"
+          name="address"
+        />
+        <p className="error-text">
+          {touched.address && errors.address}
+        </p>
+
+        <label className="formLabel" htmlFor="city">City</label>
+        <Field
+          autoComplete="off"
+          type="text"
+          id="city"
+          name="city"
+        />
+        <p className="error-text">
+          {touched.city && errors.city}
+        </p>
+
+        <label className="formLabel" htmlFor="state">State</label>
+        <Field
+          autoComplete="off"
+          type="text"
+          id="state"
+          name="state"
+        />
+        <p className="error-text">
+          {touched.state && errors.state}
+        </p>
+
+        <label className="formLabel" htmlFor="zip">Zip Code</label>
+        <Field
+          autoComplete="off"
+          type="text"
+          id="zip"
+          name="zip"
+        />
+        <p className="error-text">
+          {touched.zip && errors.zip}
+        </p>
+
         <div className="termsCheck">
         <label htmlFor="terms">I accept the terms of service</label>
         <Field
@@ -81,7 +126,11 @@ export default withFormik({
     return {
       firstName: "",
       lastName: "",
-      email: ""
+      email: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: ""
     };
   },
   handleSubmit: (values, formikBag) => {
@@ -115,6 +164,18 @@ export default withFormik({
       .required("Email is required"),
     terms: Yup.boolean()
       .oneOf([true], 'Must Accept Terms of Service')
-      .required('Must Accept Terms of Service')
+      .required('Must Accept Terms of Service'),
+    address: Yup.string()
+      .min(10, "Address must be at least 10 characters long")
+      .max(50, "Address must be at most 50 characters long"),    
+    city: Yup.string()
+      .min(4, "City must be at least 4 characters long")
+      .max(40, "City must be at most 40 characters long"),
+    state: Yup.string()
+      .min(2, "State must be at least 2 characters long")
+      .max(20, "State must be at most 20 characters long"),
+    zip: Yup.string()
+      .min(5, "State must be at least 5 characters long")
+      .max(10, "State must be at most 10 characters long"),
   })
 })(LoginForm);
