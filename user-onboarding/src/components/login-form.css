@@ -77,12 +77,14 @@
 .termsCheck {
     display: flex;
     justify-content: flex-start;
-    margin-top: 15px;
-
+    margin-top: 20px;
 }
 .termsCheck label {
     width: 37%;
 }
 .termsCheck .field {
     width: 5%;
+}
+.email {
+    margin-top: 20px;
 }

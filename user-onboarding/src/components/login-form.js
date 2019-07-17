@@ -39,7 +39,7 @@ function LoginForm({ errors, touched, isSubmitting }) {
           {touched.lastName && errors.lastName}
         </p>
 
-        <label htmlFor="password">Email</label>
+        <label className="email" htmlFor="password">Email</label>
         <Field
           autoComplete="off"
           type="email"
