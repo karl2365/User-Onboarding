@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #212121;
+  background-color: #fafafa;
+}
